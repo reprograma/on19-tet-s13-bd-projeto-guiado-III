@@ -201,5 +201,4 @@
   <img src="https://media3.giphy.com/media/JUSwkiO1Eh5K43ruN0/giphy.gif" width= "400" height="200"/>
 </p>
 <br>
- <p align="center"> Para recomeçar clique em 'START'<div id="voltarTopo"><a href="#" id="subir"> <p align="center"> <img src="https://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/26b0d9a666ff2f4.png" width= "150" height="100" /></a>
-</div> 
+
