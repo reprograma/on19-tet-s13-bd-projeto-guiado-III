@@ -1,0 +1,24 @@
+{
+  "name": "on19-tet-s13-bd-projeto-guiado-iii",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">\r   <img src=\"assets/reprograma-fundos-claros.png\" alt=\"logo reprograma\" width=\"500\">\r </h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reprograma/on19-tet-s13-bd-projeto-guiado-III.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reprograma/on19-tet-s13-bd-projeto-guiado-III/issues"
+  },
+  "homepage": "https://github.com/reprograma/on19-tet-s13-bd-projeto-guiado-III#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}

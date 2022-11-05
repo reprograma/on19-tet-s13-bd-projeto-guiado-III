@@ -1,5 +1,11 @@
 # Exercício de Sala 🏫  
 
+* realizar importação do model
+* criar uma const:
+ 1- que encontre todos os consoles - get
+ 2- encontre console por ID - get
+ 3- 
+
 ## Nome do Exercicio
 
 - Explicação do exercício: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci.
