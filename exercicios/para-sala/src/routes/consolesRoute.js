@@ -6,9 +6,9 @@ router.get("/all", controller.findAllConsoles);
 
 router.get("/:id", controller.findConsoleById);
 
-router.get("/name", controller.findConsoleByName);
+router.get("/:name", controller.findConsoleByName);
 
-router.get("/available", controller.findByAvailable);
+router.get("/:available", controller.findByAvailable);
 
 router.post("/add", controller.addNewConsole);
 

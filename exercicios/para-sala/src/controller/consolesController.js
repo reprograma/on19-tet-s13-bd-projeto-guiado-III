@@ -98,25 +98,28 @@ const deleteConsole = async (req, res) => {
 }
 const findConsoleByName = async (req, res) => {
     try {
-        const {name} = req.params;
-        const findConsoleByName = await consolesModel.find(name);
-        const message = `Achou esse Console ${findConsoleByName.name}`;
-        res.status(200).json({ message});
+        const findConsole = await consolesModel.find(req.query.name);
+        res.status(200).json(findConsole);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error });
+
     }
+
+
+
+
+
 }
 
 const findByAvailable = async (req, res) => {
     try {
-        const {available} = req.params;
-        const findByAvailable = await consolesModel.find(available);
-        const message = `Achou por Avaliacao ${findByAvailable.available}`;
-        res.status(200).json({ message});
+        const findConsole = await consolesModel.find(req.query.available);
+        res.status(200).json(findConsole);
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error });
+
     }
 }
 
