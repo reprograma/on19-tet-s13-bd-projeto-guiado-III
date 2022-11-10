@@ -1,32 +1,28 @@
-const consolesModel = require("../models/consolesModel");
+const ConsolesModel = require("../models/consolesModel");
 
 const findAllConsoles = async (req, res) => {
   try {
-    const allConsoles = await consolesModel.find();
-
+    const allConsoles = await ConsolesModel.find();
     res.status(200).json(allConsoles);
-  } catch (error) {
+  } catch {
     console.log(error);
     res.status(500).json({ message: error.message });
-  }
+  };
 };
 
 const findConsoleById = async (req, res) => {
   try {
-    const findConsole = await consolesModel.findById(req.params.id);
+    const findConsole = await ConsolesModel.findById(req.params.id);
     res.status(200).json(findConsole);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ message: error.message });
-  }
+  };
 };
-
-const findByAvailable = async (req, res) => {
+const findConsoleByAvaliable = async (req, res) => {
   try {
-    const requestAvailable = req.query.available;
-
-    const searchAvailable = await consolesModel.find({
-      available: requestAvailable,
+    const searchAvailable = await ConsolesModel.filter({
+      avaliable: req.params.avaliable,
     });
     res.status(200).json(searchAvailable);
   } catch (error) {
@@ -43,30 +39,27 @@ const addNewConsole = async (req, res) => {
       display,
       storageCapacities,
       numberOfPlayers,
-      avaliable,
+      available,
       description,
     } = req.body;
-
-    const newConsole = new consolesModel({
+    const newConsole = new ConsolesModel({
       name,
       developer,
       releaseDate,
       display,
       storageCapacities,
       numberOfPlayers,
-      avaliable,
+      available,
       description,
     });
 
     const savedConsole = await newConsole.save();
 
-    res
-      .status(201)
-      .json({ message: "New console successfully added", savedConsole });
+    res.status(201).json({ message: "New console successfully added", savedConsole });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json(error.message);
-  }
+  };
 };
 
 const updateConsole = async (req, res) => {
@@ -74,42 +67,41 @@ const updateConsole = async (req, res) => {
     const {
       name,
       developer,
-      releaseData,
+      releaseDate,
       display,
       storageCapacities,
       numberOfPlayers,
-      avaliable,
+      available,
       description,
     } = req.body;
-    const updateConsole = await consolesModel.findByIdAndUpdate(req.params.id, {
+    const updateConsole = await ConsolesModel.findByIdAndUpdate(req.params.id, {
       name,
       developer,
-      releaseData,
+      releaseDate,
       display,
       storageCapacities,
       numberOfPlayers,
-      avaliable,
+      available,
       description,
     });
 
-    res
-      .status(200)
-      .json({ message: "Console successfully updated", updateConsole });
-  } catch (error) {
-    console.log(error);
+    res.status(200).json({ message: "Console successfully updated", updateConsole });
+  } catch {
+    console.error(error);
     res.status(500).json({ message: error.message });
-  }
+  };
 };
+
 const deleteConsole = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteConsole = await consolesModel.findByIdAndDelete(id);
-    const message = `Console with name ${deleteConsole.name} was successfully deleted`;
+    const deleteConsole = await ConsolesModel.findByIdAndDelete(id);
+    const message = `Console with id ${deleteConsole.name} was successfully deleted`;
     res.status(200).json({ message });
-  } catch (error) {
-    console.log(error);
+  } catch (error){
+    console.error(error);
     res.status(500).json({ message: error.message });
-  }
+  };
 };
 
 module.exports = {
@@ -118,5 +110,5 @@ module.exports = {
   addNewConsole,
   updateConsole,
   deleteConsole,
-  findByAvailable,
+  findConsoleByAvaliable
 };

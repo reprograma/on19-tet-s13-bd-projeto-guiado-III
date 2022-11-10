@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const consoleSchema = new mongoose.Schema(
+
+const consoleSchema = mongoose.Schema(
   {
     _id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -30,21 +31,15 @@ const consoleSchema = new mongoose.Schema(
       type: [Number],
       required: true,
     },
-    avaliable: {
+    available: {
       type: Boolean,
       required: true,
     },
-    description: {
-      type: String,
-      minLenght: 0,
-      maxLenght: 1000,
-      default: "no description",
-    },
+    description: String,
   },
-  {
-    timestamp: true,
-  }
+  { timestamp: true }
 );
 
 const Model = mongoose.model("Console", consoleSchema);
+
 module.exports = Model;
