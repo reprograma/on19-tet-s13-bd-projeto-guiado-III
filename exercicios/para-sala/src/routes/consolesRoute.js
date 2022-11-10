@@ -7,6 +7,13 @@ router.get("/all", controller.findAllConsoles);
 
 router.get("/:id", controller.findConsoleById);
 
+
+
+
+router.get("/:id", controller.findConsoleByName);
+
+
+
 router.post("/add", controller.addNewConsole);
 
 router.patch("/:id", controller.updateConsole);

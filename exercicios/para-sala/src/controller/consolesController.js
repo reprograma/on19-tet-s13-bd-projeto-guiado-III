@@ -20,6 +20,33 @@ const findConsoleById = async (req, res) => {
   };
 };
 
+
+
+
+
+
+
+
+
+const findConsoleByName = async (req, res) => {
+  try {
+    const findConsole = await ConsolesModel.findByName(req.params.id);
+    res.status(200).json(findConsole);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  };
+};
+
+
+
+
+
+
+
+
+
+
 const addNewConsole = async (req, res) => {
   try {
     const {
@@ -97,6 +124,7 @@ const deleteConsole = async (req, res) => {
 module.exports = {
   findAllConsoles,
   findConsoleById,
+  findConsoleByName,
   addNewConsole,
   updateConsole,
   deleteConsole,
