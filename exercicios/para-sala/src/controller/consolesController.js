@@ -1,4 +1,20 @@
 const ConsolesModel = require("../models/consolesModel");
+<<<<<<< HEAD
+const getAvailable = async (req, res) => {
+  try {
+    const {available} = req.query
+    const findConsoles = await ConsolesModel.find({available})
+    if (!findConsoles) {
+      return res .status(404).json({message: "filter not found"})
+    } 
+    res.status (200).json(findConsoles)
+  } catch {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  };
+}
+=======
+>>>>>>> 6a1fd3b56602aaf232ee4894ab2130300e29d25a
 
 const findAllConsoles = async (req, res) => {
   try {
@@ -10,7 +26,11 @@ const findAllConsoles = async (req, res) => {
   };
 };
 
+<<<<<<< HEAD
+const findConsoleById = async (req, res) => { // rota get
+=======
 const findConsoleById = async (req, res) => {
+>>>>>>> 6a1fd3b56602aaf232ee4894ab2130300e29d25a
   try {
     const findConsole = await ConsolesModel.findById(req.params.id);
     res.status(200).json(findConsole);
@@ -94,7 +114,13 @@ const deleteConsole = async (req, res) => {
   };
 };
 
+<<<<<<< HEAD
+module.exports =
+{
+  getAvailable,
+=======
 module.exports = {
+>>>>>>> 6a1fd3b56602aaf232ee4894ab2130300e29d25a
   findAllConsoles,
   findConsoleById,
   addNewConsole,

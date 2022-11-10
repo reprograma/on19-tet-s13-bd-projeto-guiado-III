@@ -1,5 +1,21 @@
 const GamesModel = require("../models/gamesModel");
 const ConsolesModel = require("../models/consolesModel");
+<<<<<<< HEAD
+const getName = async (req, res) => {
+  try {
+    const {name} = req.query
+    const findConsoles = await ConsolesModel.find({name})
+    if (!findConsoles) {
+      return res .status(404).json({message: "filter not found"})
+    } 
+    res.status (200).json(findConsoles)
+  } catch {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  };
+}
+=======
+>>>>>>> 6a1fd3b56602aaf232ee4894ab2130300e29d25a
 
 const findAllGames = async (req, res) => {
   try {
@@ -126,6 +142,10 @@ const deleteGame = async (req, res) => {
 };
 
 module.exports = {
+<<<<<<< HEAD
+  getName,
+=======
+>>>>>>> 6a1fd3b56602aaf232ee4894ab2130300e29d25a
   findAllGames,
   findGameById,
   addNewGame,

@@ -6,6 +6,10 @@
  2- encontre console por ID - get
  3- 
 
+image.png
+
+
+
 ## Nome do Exercicio
 
 - Explicação do exercício: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci.
