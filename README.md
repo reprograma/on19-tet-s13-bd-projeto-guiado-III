@@ -1,5 +1,12 @@
 ##   Apresentação
 
+##  Adicionando um console
+![s13-1](https://user-images.githubusercontent.com/83043344/201185898-e0d9a2e4-de69-4f41-9b56-a0ffb19273a9.png)
+
+## Adicionando um game 
+![s13-2](https://user-images.githubusercontent.com/83043344/201186019-dfca959f-b77c-4b74-b7fd-440411c5ab00.png)
+
+
  Olá, meu nome é Gaia Maria. Sou uma travesti graduada em História Licenciatura (UNESP) e graduanda em Análise e Desenvolvimento de Sistemas (Faculdade Descomplica). Sou uma Bruxa devota a Hecate, ocultista e pagã. Tambem sou uma pessoa neurodiversa, gamer, viciada em RPG e desenvolvedora.
 
 ###  👩🏽‍🏫 recadinhos 
