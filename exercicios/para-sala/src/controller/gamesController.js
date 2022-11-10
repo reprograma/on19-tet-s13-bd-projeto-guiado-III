@@ -13,16 +13,28 @@ const findAllGames = async (req, res) => {
 
 const findGameById = async (req, res) => {
     try {
-        const findGame = await gamesModel.findById(req.params.id).populate(
-            "console"
-        );
+        const findGame = await gamesModel.findById(req.params.id).populate("console");
         if (findGame == null) {
-            res.status(404).json({ message: "Game not available" });
+            res.status(404).json({ message: "Game not available." });
         }
         res.status(200).json(findGame);
     } catch (error) {
         res.status(500).json({ message: error.message });
     };
+};
+
+const findByName = async (req, res) => {
+    try {
+        //To be able to search for any words contained in the title of the game opposed to using the entire name, I applied a regex filter ("God", instead of "God of War) 
+        const findByName = await gamesModel.find({ name: { "$regex": req.query.name, "$options": "i"}}).populate("console");
+        //I have no idea why a empty array is always being returned, as this is not related to the regex filter 
+        if (findByName == null) {
+            res.status(404).json({message: "No game title matching this name."});
+        }
+        res.status(200).json(findByName)
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
 };
 
 const addNewGame = async (req, res) => {
@@ -114,7 +126,7 @@ const updateGame = async (req, res) => {
 const deleteGame = async (req, res) => {
     try {
         const { id } = req.params;
-        const findGames = await GamesModel.findById(id);
+        const findGames = await gamesModel.findById(id);
 
         if (findGames == null) {
             return res.status(404).json({ message: `Game with id ${id} not found` })
@@ -131,5 +143,6 @@ module.exports = {
     findGameById,
     addNewGame,
     updateGame,
-    deleteGame
+    deleteGame,
+    findByName
 }
