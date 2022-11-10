@@ -199,20 +199,21 @@ Essa semana vocês foram salvas pela Jani, agradeçam muito a ela kkkkkkk Então
 
 ### Resolução da Tarefa:
 Prints:
-*Novo jogo:
+
+**Novo jogo:**
 <p align="left">
-  <img src="./exercicios/projeto-casa/img/newgame.png" width= "600" height="400"/>
+  <img src="./exercicios/projeto-casa/img/newgame.png" width= "800"/>
 </p>
 <p align="left">
-  <img src="./exercicios/projeto-casa/img/newgamepostman.png" width= "600" height="400"/>
+  <img src="./exercicios/projeto-casa/img/newgamepostman.png" width= "800"/>
 </p>
 
-*Novo console:
+**Novo console:**
 <p align="left">
-  <img src="./exercicios/projeto-casa/img/newconsole.png" width= "600" height="400"/>
+  <img src="./exercicios/projeto-casa/img/newconsole.png" width= "800"/>
 </p>
 <p align="left">
-  <img src="./exercicios/projeto-casa/img/newconsolepostman.png" width= "600" height="400"/>
+  <img src="./exercicios/projeto-casa/img/newconsolepostman.png" width= "800"/>
 </p>
 
 ##  Minhas redes sociais
