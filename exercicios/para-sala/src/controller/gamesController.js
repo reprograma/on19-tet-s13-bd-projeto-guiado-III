@@ -14,15 +14,32 @@ const findGameById = async (req, res) => {
   try {
     const findGame = await GamesModel.findById(req.params.id).populate(
       "Console"
-    );
-    if (findGame == null) {
-      res.status(404).json({ message: "Game not available" });
-    }
-    res.status(200).json(findGame);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+      );
+      if (findGame == null) {
+        res.status(404).json({ message: "Game not available" });
+      }
+      res.status(200).json(findGame);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    };
   };
-};
+  
+   const findGameByName = async (req, res) => {
+     try {
+       const findGame = await GamesModel.find(req.query)
+       if (findGame == null) {
+         res.status(404).json({ message: "Name not available" });
+       }
+     
+       if (findGame){
+         res.status(200).json(findGame);
+       }
+     } catch (error) {
+       res.status(500).json({ message: error.message });
+     };
+   
+   }
+
 const addNewGame = async (req, res) => {
   try {
     const {
@@ -108,6 +125,7 @@ const updateGame = async (req, res) => {
     res.status(500).json({ message: error.message });
   };
 };
+
 const deleteGame = async (req, res) => {
     try {
       const { id } = req.params;
@@ -126,6 +144,7 @@ const deleteGame = async (req, res) => {
   module.exports = {
     findAllGames,
     findGameById,
+    findGameByName,
     addNewGame,
     updateGame,
     deleteGame,
