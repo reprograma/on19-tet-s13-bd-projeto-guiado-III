@@ -197,6 +197,25 @@ Essa semana vocês foram salvas pela Jani, agradeçam muito a ela kkkkkkk Então
 * Cadastre no seu banco de dados um novo jogo e/ou um novo console (a sua escolha), tire um print da tela e adicione essa imagem no seu **README.md** isso servirá como comprovante pessoal de que todo seu codigo esta funcionando. 
 * Opicional (não conta como avaliação): Crie uma **rota GET** para *genre* em jogos e uma **rota GET** para *developer* em consoles.
 
+### Resolução da Tarefa:
+Prints:
+
+**Novo jogo:**
+<p align="left">
+  <img src="./exercicios/projeto-casa/img/newgame.png" width= "800"/>
+</p>
+<p align="left">
+  <img src="./exercicios/projeto-casa/img/newgamepostman.png" width= "800"/>
+</p>
+
+**Novo console:**
+<p align="left">
+  <img src="./exercicios/projeto-casa/img/newconsole.png" width= "800"/>
+</p>
+<p align="left">
+  <img src="./exercicios/projeto-casa/img/newconsolepostman.png" width= "800"/>
+</p>
+
 ##  Minhas redes sociais
  - [LINKEDIN](https://www.linkedin.com/in/gaia-maria/)
  - [GITHUB](https://github.com/Gaia-Maria)

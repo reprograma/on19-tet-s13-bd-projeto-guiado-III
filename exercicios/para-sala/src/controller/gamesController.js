@@ -24,6 +24,19 @@ const findGameById = async (req, res) => {
   };
 };
 
+const findGameByName = async (req,res) => {
+  try {
+    const findName = await GamesModel.find(req.params.name).populate("console");
+    if (findName == null) {
+      res.status(404).json({message: "Game not found"});
+    }
+    res.status(200).json(findName);
+  } 
+  catch (error) {
+    res.status(500).json({message: error.message})
+  };
+}
+
 const addNewGame = async (req, res) => {
   try {
     const {
@@ -128,6 +141,7 @@ const deleteGame = async (req, res) => {
 module.exports = {
   findAllGames,
   findGameById,
+  findGameByName,
   addNewGame,
   updateGame,
   deleteGame,
