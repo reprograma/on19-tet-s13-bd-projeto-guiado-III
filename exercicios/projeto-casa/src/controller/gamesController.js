@@ -26,7 +26,7 @@ const findGameById = async (req, res) => {
 
 const findGameByName = async (req, res) => {
   try {
-    const searchGame = await gamesModel.find({ name: req.params.name })
+    const searchGame = await GamesModel.find({ name: req.params.name })
     if (searchGame == null) {
       res.status(404).json({ message: "Game not available" });
     }

@@ -19,10 +19,10 @@ const findConsoleById = async (req, res) => {
     res.status(500).json({ message: error.message });
   };
 };
-const findConsoleByAvaliable = async (req, res) => {
+const findConsoleByAvailable = async (req, res) => {
   try {
     const searchAvailable = await ConsolesModel.filter({
-      avaliable: req.params.avaliable,
+      available: req.params.available,
     });
     res.status(200).json(searchAvailable);
   } catch (error) {
@@ -110,5 +110,5 @@ module.exports = {
   addNewConsole,
   updateConsole,
   deleteConsole,
-  findConsoleByAvaliable
+  findConsoleByAvailable
 };
