@@ -19,6 +19,18 @@ const findConsoleById = async (req, res) => {
     res.status(500).json({ message: error.message });
   };
 };
+const findConsoleByAvailable = async (req, res) => {
+  try {
+      const { available } = req.query;
+      const findConsole = await ConsolesModel.find({ available }).exec();
+      if (!findConsole.length) {
+          return res.status(404).json({ message: "That conditional was not found" });
+      }
+      res.status(200).json(findConsole);
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  };
+};
 
 const addNewConsole = async (req, res) => {
   try {
@@ -30,8 +42,9 @@ const addNewConsole = async (req, res) => {
       storageCapacities,
       numberOfPlayers,
       available,
-      description,
-    } = req.body;
+      description
+
+,    } = req.body;
     const newConsole = new ConsolesModel({
       name,
       developer,
@@ -40,7 +53,8 @@ const addNewConsole = async (req, res) => {
       storageCapacities,
       numberOfPlayers,
       available,
-      description,
+      description
+,
     });
 
     const savedConsole = await newConsole.save();
@@ -62,7 +76,8 @@ const updateConsole = async (req, res) => {
       storageCapacities,
       numberOfPlayers,
       available,
-      description,
+      description
+,
     } = req.body;
     const updateConsole = await ConsolesModel.findByIdAndUpdate(req.params.id, {
       name,
@@ -72,7 +87,8 @@ const updateConsole = async (req, res) => {
       storageCapacities,
       numberOfPlayers,
       available,
-      description,
+      description
+,
     });
 
     res.status(200).json({ message: "Console successfully updated", updateConsole });
@@ -83,21 +99,22 @@ const updateConsole = async (req, res) => {
 };
 
 const deleteConsole = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleteConsole = await ConsolesModel.findByIdAndDelete(id);
-    const message = `Console with id ${deleteConsole.name} was successfully deleted`;
-    res.status(200).json({ message });
-  } catch (error){
-    console.error(error);
-    res.status(500).json({ message: error.message });
+    try {
+      const { id } = req.params;
+      const deleteConsole = await ConsolesModel.findByIdAndDelete(id);
+      const message = `Console with id ${deleteConsole.name} was successfully deleted`;
+      res.status(200).json({ message });
+    } catch (error){
+      console.error(error);
+      res.status(500).json({ message: error.message });
+    };
   };
-};
 
-module.exports = {
-  findAllConsoles,
-  findConsoleById,
-  addNewConsole,
-  updateConsole,
-  deleteConsole,
-};
+  module.exports = {
+    findAllConsoles,
+    findConsoleById,
+    findConsoleByAvailable,
+    addNewConsole,
+    updateConsole,
+    deleteConsole,
+  };

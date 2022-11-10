@@ -1,9 +1,9 @@
-const GamesModel = require("../models/gamesModel");
-const ConsolesModel = require("../models/consolesModel");
+const gamesModel = require("../models/gamesModel");
+const consolesModel = require("../models/consolesModel");
 
 const findAllGames = async (req, res) => {
   try {
-    const allGames = await GamesModel.find().populate("console");
+    const allGames = await gamesModel.find().populate("console");
     res.status(200).json(allGames);
   } catch {
     res.status(500).json({ message: error.message });
@@ -12,7 +12,7 @@ const findAllGames = async (req, res) => {
 
 const findGameById = async (req, res) => {
   try {
-    const findGame = await GamesModel.findById(req.params.id).populate(
+    const findGame = await gamesModel.findById(req.params.id).populate(
       "console"
     );
     if (findGame == null) {
@@ -21,6 +21,19 @@ const findGameById = async (req, res) => {
     res.status(200).json(findGame);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  };
+};
+
+const findGameByName = async (req, res) => {
+  try {
+      const { name } = req.query;
+      const findGame = await gamesModel.find({ name }).exec();
+      if (!findGame.length) {
+          return res.status(404).json({ message: `Name ${name} not found` });
+      }
+      res.status(200).json(findGame);
+  } catch (error) {
+      res.status(500).json({ message: error.message });
   };
 };
 
@@ -43,14 +56,14 @@ const addNewGame = async (req, res) => {
         .json({ message: "Required: Enter the Console id." });
     };
 
-    const findConsole = await ConsolesModel.findById(consoleId);
+    const findConsole = await consolesModel.findById(consoleId);
 
     if (!findConsole) {
       return res.status(404).json({ message: "Console not found" });
     };
 
-    const newGame = new GamesModel({
-      console: consoleId,
+    const newGame = new gamesModel({
+      consoleId,
       name,
       developer,
       releaseDate,
@@ -82,13 +95,13 @@ const updateGame = async (req, res) => {
       available,
       description,
     } = req.body;
-    const findGame = await GamesModel.findById(id);
+    const findGame = await gamesModel.findById(id);
     if (findGame == null) {
       res.status(404).json({ message: "Game not found" });
     };
 
     if (consoleId) {
-      const findConsole = await ConsolesModel.findById(consoleId);
+      const findConsole = await consolesModel.findById(consoleId);
 
       if (findConsole == null) {
         return res.status(404).json({ message: "Console not found" });
@@ -96,9 +109,9 @@ const updateGame = async (req, res) => {
     };
     findGame.name = name || findGame.name;
     findGame.developer = developer || findGame.developer;
-    findGame.releaseDate = releaseDate || findGame.releaseDate;
+    findGame.releaseData = releaseDate || findGame.releaseData;
     findGame.genre = genre || findGame.genre;
-    findGame.mode = mode || findGame.mode;
+    findGame.model = model || findGame.model;
     findGame.available = available || findGame.available;
     findGame.description = description || findGame.description;
     findGame.console = consoleId || findGame.console;
@@ -113,7 +126,7 @@ const updateGame = async (req, res) => {
 const deleteGame = async (req, res) => {
   try {
     const { id } = req.params;
-    const findGames = await GamesModel.findById(id);
+    const findGames = await gamesModel.findById(id);
 
     if (findGames == null) {
       return res.status(404).json({ message: `Game with id ${id} not found` })
@@ -128,6 +141,7 @@ const deleteGame = async (req, res) => {
 module.exports = {
   findAllGames,
   findGameById,
+  findGameByName,
   addNewGame,
   updateGame,
   deleteGame,
