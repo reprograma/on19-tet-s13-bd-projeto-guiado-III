@@ -1,204 +1,30 @@
-##   Apresentação
+<h1 align="center">
+  <img src="assets/kyubey (1).gif" alt="gif Kyubei" width="350">
+</h1>
 
- Olá, meu nome é Gaia Maria. Sou uma travesti graduada em História Licenciatura (UNESP) e graduanda em Análise e Desenvolvimento de Sistemas (Faculdade Descomplica). Sou uma Bruxa devota a Hecate, ocultista e pagã. Tambem sou uma pessoa neurodiversa, gamer, viciada em RPG e desenvolvedora.
+# Projeto Guiado III - CRUD com Banco de Dados
 
-###  👩🏽‍🏫 recadinhos 
-    - Bebam água meninas
-    - Qualquer pergunta é válida, principalmente aquela que a gente pensa que não faz sentido.
-    - Deixe a camera ligada
-    
-### 📑 Conteúdo da Aula
+Turma Online 19 - Todas em Tech  | Back-end | Semana 13 | 2022 | Gaia Maria
 
-    - Revisão
-    - Projeto Guiado
-## 🛠️Tecnologias utilizadas:
+##   Apresentação e Justificativa
 
-| Ferramenta | Descrição |
-| --- | --- |
-| `javascript` | Linguagem de programação |
-| `nodejs` | Ambiente de execução do javascript|
-| `express` | Framework NodeJS |
-| `dotenv` | Dependência para proteger dados sensíveis do projeto|
-| `mongoose` | Dependência que interage com o MongoDB para a conexão da database, criação do model e das collections|
-| `nodemon` | Dependência que observa as atualizações realizadas nos documentos para rodar o servidor automaticamente|
-| `npm ou yarn` | Gerenciador de pacotes|
-| `MongoDb` | Banco de dado não relacional orietado a documentos|
-| `MongoDb Compass ou Mongo Atlas` | Interface gráfica para verificar se os dados foram persistidos|
- `Thunder Client ou Postman` | Interface gráfica para realizar os testes|
- <br>
+ Olá, meu nome é Laura Rocha. Sou uma mulher trans não binária graduada em Biomedicina (UEM). Costumo me definir pelos meus interesses, que são extremamente diversos, incluindo jogos, livros, filmes, séries, animes & mangás e descobrir novos artistas e bandas. Sou entusiasta do terror e do experimental em todo o tipo de mídia. Dito isso, não é nada surpreendente que meu console favorito escolhido para realizar a atividade do projeto guiado dessa semana, em banco de dados, tenha sido o PlayStation 2. Uma das plataformas de jogos eletrônicos mais populares que já existiram e detentor do recorde de console mais vendido da história, o PS2 foi responsável por um significante salto tecnológico em relação à geração anterior, o que permitiu que estúdios e desenvolvedores experimentassem com diversas mecânicas e ferramentas, além de ter sido o modelo que viu um dos maiores números de lançamentos do gênero de *survival horror*, devido a alta popularidade deste no início do século. Quanto ao jogo escolhido, minha história com Silent Hill se inicia ainda na geração anterior com o primeiro título da franquia: por volta dos 8 anos (sem acesso à internet para saber sobre jogos que não tivesse já jogado ou ouvido falar sobre, e sem nenhum conhecimento no idioma inglês) acabei entrando em contato com Silent Hill e verdadeiramente marcada pela experiência, sempre relembrando tal evento até decidir se aventurar pelas ruas enevoadas da cidade silenciosa novamente, duramente minha adolescência.
+ </br>
+ </br>
 
- ## 🗂️ Arquitetura  
- ````  
-   📁 jogos-API-DB  
-   |  
-   |-  📁 src    
-   |    |
-   |    |- 📁 database  
-   |         |- 📄 mongooseConnect.js  
-   |
-   |    |- 📁 controllers  
-   |         |- 📄 consolesController.js  
-   |         |- 📄 gamesController.js  
-   |  
-   |    |- 📁 models  
-   |         |- 📄 consolesModel.js  
-   |         |- 📄 gamesModel.js  
-   |  
-   |    |- 📁 routes  
-   |         |- 📄 consolesRoutes.js   
-   |         |- 📄 gamesRoutes.js     
-   |    |- 📄 app.js
-   |
-   |- 📄 .env
-   |- 📄 .env.example
-   |- 📄 .gitignore  
-   |- 📄 package-lock.json  
-   |- 📄 pakage.json  
-   |- 📄 README.md  
-   |- 📄 server.js  
-````
+<h1 align="center">
+  <img src="assets/Console.png" alt="Console adicionado pela aluna durante o projeto" width="500">
+</h1>
 
-<br>
+<h1 align="center">
+  <img src="assets/Game.png" alt="Jogo adicionado pela aluna durante o projeto" width="500">
+</h1>
 
-## 🌐Dados para Collection Consoles
+<h1 align="center">
+  <img src="assets/picrew Laura.png" alt="Picrew ilustrativo da aluna Laura" width="500">
+</h1>
 
-- **_id**: autogerado e obrigatório
-- **name**: texto e obrigatório (*unico*)
-- **developer**: texto e obrigatorio
-- **releaseData**: number e obrigatorio
-- **display**: array, texto e obrigatorio
-- **storageCapacities**: array, texto e obrigatorio
-- **numberOfPlayers**: array numerico e obrigatorio
-- **available**: boolean e obrigatorio
-- **description**: texto e opcional
-  
- <br>
-
-### 🖨️ API deve retornar seguinte JSON:
-```javascript
-[
-  {
-    "_id":new ObjectId("62b0c3860a5912f473d73c0f"),
-    "name":"PlayStation 4",
-    "developer":"Sony Computer Entertainment",
-    "releaseData":{"2013"},
-    "display":["480p","720p","1080p","4K"],
-    "storageCapacities":["500GB","1TB","2TB"],
-    "numberOfPlayers":[{"1","2","3","4"}],
-    "available":true,
-    "description":"The PlayStation 4 (PS4) is a home video game console developed by Sony Computer..."
-     __v: 0
-},
-{
-    "_id":new ObjectId("62b0c4860a5912f473d73c11"),
-    "name":"Xbox One",
-    "developer":"Microsoft",
-    "releaseData":{"2013"},
-    "display":["720p","1080p","1440p","4K"],
-    "storageCapacities":["500GB","1TB"],
-    "numberOfPlayers":["1","2","3","4"],
-    "available":true,
-    "description":"The Xbox One is a home video game console developed by Microsoft..."
-     __v: 0
-},
-{
-    "_id":new ObjectId("62b0c6110a5912f473d73c13"),
-    "name":"Nintendo Switch",
-    "developer":"Nintendo PTD",
-    "releaseData":{"2017"},
-    "display":["480p","720p","1080p"],
-    "storageCapacities":["34GB","64TB"],
-    "numberOfPlayers":["1","2"],
-    "available":false,
-    "description":"The Nintendo Switch is a video game console developed by Nintendo..."
-     __v: 0
-  }
-]
-```
-<br>
-<br>
-
-
-## 🌐 Dados para Collection Games
-- **_id**: autogerado e obrigatório
-- **name**: texto e obrigatório (*unico*)
-- **developer**: texto e obrigatorio
-- **releaseData**: number e obrigatorio
-- **genre**: array, texto e obrigatorio
-- **mode**: array, texto e obrigatorio
-- **available**: boolean e obrigatorio
-- **description**: texto e opcional
-- **idConsole**: id do console e obrigatorio
-  
-<br>
-
-### 🖨️ API deve retornar seguinte JSON:
-```javascript
-[
-  {
-    "_id": new ObjectId( "62b0df5fa494af18319efae7"),
-    "name": "God of War",
-    "developer": "Santa Monica Studio",
-    "releaseData": 2018,
-    "genre": ["Action-adventure","hack and slash"],
-    "mode": ["Single-player"],
-    "available": true,
-    "description": "While the first seven games were loosely based on Greek mythology...",
-    "console": new ObjectId(62b0c3860a5912f473d73c0f)"
-     __v: 0
-  },
-  {
-    "_id:" new ObjectId("62b0e168a494af18319efaea"),
-    "name": "Halo: The Master Chief Collection",
-    "developer": "343 Industries",
-    "releaseData": 2014,
-    "genre": ["First-person","shooter"],
-    "mode": ["Single-player","multiplayer"],
-    "available": true,
-    "description": "Is a compilation of first-person shooter video games...",
-    "console": new ObjectId("62b0c4860a5912f473d73c11"),
-  },
-  {
-    "_id:" new ObjectId("62b0e20da494af18319efaed"),
-    "name": "Pokémon Legends: Arceus",
-    "developer": "Game Freak",
-    "releaseData": 2022,
-    "genre": ["Action role-playing"],
-    "mode": ["Single-player"],
-    "available": true,
-    "description": "Arceus is a 2022 action role-playing game developed by Game Freak...",
-    "console": new ObjectId("62b0c6110a5912f473d73c13"),
-  }
-]
-````
-
-## 📖 Referências
-- https://www.gartner.com/en/information-technology/glossary/object-data-model
-- https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Express_Nodejs/mongoose
-- https://docs.mongodb.com/
-- https://docs.mongodb.com/manual/crud/
-- https://docs.atlas.mongodb.com/tutorial/create-new-cluster/
-- https://studio3t.com/academy/topic/mongodb-vs-sql-concepts/
-- https://mongoosejs.com/docs/index.html
-
-### 🎥 Videos de apoio
-
-- [Resumo Mongodb - Codigo Fonte TV](https://www.youtube.com/watch?v=4dTI1mVLX3I)
-- [nodeJs Express Mongo - Api rest full Turitorial](https://www.youtube.com/watch?v=K5QaTfE5ylk)
-- [O que é banco de dados? - Curso em Video](https://www.youtube.com/watch?v=Ofktsne-utM)
-
-##  🎓 Para Casa
-- Termine o codigo, caso tenha faltado alguma informação;
-- Como atividade de casa eu quero que vocês cadastrem o jogo favorito de vocês e adicionem como imagem aqui no readme.
-
-##  Minhas redes sociais
- - [LINKEDIN](https://www.linkedin.com/in/gaia-maria/)
- - [GITHUB](https://github.com/Gaia-Maria)
-<br>
-<br>
-<p align="center"> 👾 FIM DO ALGORITMO 👾  </p>
 <p align="center">
-  <img src="https://media3.giphy.com/media/JUSwkiO1Eh5K43ruN0/giphy.gif" width= "400" height="200"/>
+Desenvolvido com :purple_heart:  
 </p>
-<br>
 
