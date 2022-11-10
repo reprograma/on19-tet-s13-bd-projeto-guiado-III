@@ -28,7 +28,7 @@ const gameSchema = new mongoose.Schema(
         console: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
-            ref: "Console"
+            ref: "console"
         },
     },
     {
