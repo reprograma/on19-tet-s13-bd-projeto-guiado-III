@@ -63,7 +63,7 @@ const addNewGame = async (req, res) => {
     };
 
     const newGame = new gamesModel({
-      consoleId,
+    console: consoleId,
       name,
       developer,
       releaseDate,
