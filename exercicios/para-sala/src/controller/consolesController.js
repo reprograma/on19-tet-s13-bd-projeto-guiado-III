@@ -10,6 +10,19 @@ const findAllConsoles = async (req, res) => {
   }
 };
 
+const findDeveloper = async (req, res) => {
+  try {
+    const findDeveloper = req.query.developer
+    const findByDeveloper = await consolesModel.find({ developer: findDeveloper })
+    if (!findByDeveloper) {
+      res.status(404).json({ message: "Game not available" })
+    }
+    res.status(200).json(findByDeveloper)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+}
+
 const findConsoleById = async (req, res) => {
   try {
     const findConsole = await consolesModel.findById(req.params.id);
@@ -49,6 +62,21 @@ const addNewConsole = async (req, res) => {
     res.status(500).json(error.message);
   }
 };
+
+const findConsoleByAvailable = async (req, res) => {
+  try {
+    const availableConsole = req.query.available
+
+    const findByAvailable = await consolesModel.find({ available: availableConsole })
+    if (findByAvailable == false) {
+      res.status(404).json({ message: "Console not available" })
+    }
+    res.status(200).json(findByAvailable)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+}
+
 
 const updateConsole = async (req, res) => {
   try {
@@ -97,6 +125,8 @@ module.exports = {
   findAllConsoles,
   findConsoleById,
   addNewConsole,
+  findConsoleByAvailable,
+  findDeveloper,
   updateConsole,
   deleteConsole
 }
