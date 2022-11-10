@@ -125,10 +125,25 @@ const deleteGame = async (req, res) => {
   };
 };
 
+const findGameByName = async (req, res) => {
+  try {
+    const findGame = await GamesModel.findByName(req.params.name).populate(
+      "console"
+    );
+    if (findGame == null) {
+      res.status(404).json({ message: "Game not available" });
+    }
+    res.status(200).json(findGame);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  };
+};
+
 module.exports = {
   findAllGames,
   findGameById,
   addNewGame,
   updateGame,
   deleteGame,
+  findGameByName,
 };
