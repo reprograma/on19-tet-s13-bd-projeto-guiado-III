@@ -6,6 +6,13 @@
  2- encontre console por ID - get
  3- 
 
+![imagem readme](https://uploaddeimagens.com.br/images/004/158/557/original/IMAGETOREADME.PNG?1668101837)
+
+
+
+
+
+
 ## Nome do Exercicio
 
 - Explicação do exercício: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci.

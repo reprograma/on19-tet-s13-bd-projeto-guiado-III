@@ -1,4 +1,5 @@
-const app = require("./src/app");
+const app = require("./src/app.js");
+const port = 1313
 
 const DB_PORT = process.env.DB_PORT;
 

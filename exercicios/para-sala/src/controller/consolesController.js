@@ -1,4 +1,18 @@
 const ConsolesModel = require("../models/consolesModel");
+const findAvailable = async(req, res) => {
+  try {
+    const {available} = req.query
+    const findConsoles = await ConsolesModel.find({available})
+if (!findConsoles) {
+  return res.status(404).json({message:"Filtro não foi encontrado"})
+}
+res.status(200).json(findConsoles)
+  } catch {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  };
+};
+
 
 const findAllConsoles = async (req, res) => {
   try {
@@ -95,6 +109,7 @@ const deleteConsole = async (req, res) => {
 };
 
 module.exports = {
+  findAvailable,
   findAllConsoles,
   findConsoleById,
   addNewConsole,
