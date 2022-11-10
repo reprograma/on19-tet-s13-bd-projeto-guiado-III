@@ -1,7 +1,7 @@
 const app = require('./src/app')
 
-const port = 1300
+const DB_PORT = process.env.DB_PORT;
 
-app.listen(port, ()=>{
-    console.log(`API esta rodando na porta ${port}`);
+app.listen(DB_PORT, ()=>{
+    console.log(`API esta rodando na porta ${DB_PORT}`);
 })

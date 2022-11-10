@@ -5,7 +5,7 @@ const findAllGames = async (req, res) => {
     try {
       const allGames = await gamesModel.find().populate("console");
       res.status(200).json(allGames);
-    } catch {
+    } catch(error) {
       res.status(500).json({ message: error.message });
     };
   };
@@ -125,11 +125,24 @@ const findAllGames = async (req, res) => {
     };
   };
 
+  const findGameByName = async (req, res) => {
+    try {
+      const requestName = req.query.name
+      
+      const filterByName  = await gamesModel.find({name:requestName})
+      res.status(200).json(filterByName);  
+    } catch (error) {
+      res.status(500).json({ message: error.message }); 
+    }
+  }
+
+
   module.exports ={
     findAllGames,
     findGameById,
     addNewGame,
     updateGame,
-    deleteGame
+    deleteGame,
+    findGameByName,
   }
   

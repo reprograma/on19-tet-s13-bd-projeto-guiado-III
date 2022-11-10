@@ -92,10 +92,22 @@ const deleteConsole = async (req, res) =>{
     }
 };
 
+const filterByAvailability = async (req, res) => {
+    try {
+        const requestAvaiable = req.query.available
+        
+        const findIfAvailable = await consoleModel.find({available:requestAvaiable})
+        res.status(200).json(findIfAvailable)
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
 module.exports ={
     findAllConsoles,
     findConsoleById,
     addNewConsole,
     updateConsole,
-    deleteConsole
+    deleteConsole,
+    filterByAvailability
 }

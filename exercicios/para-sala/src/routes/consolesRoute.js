@@ -7,5 +7,6 @@ router.get("/:id", controller.findConsoleById);
 router.post("/add", controller.addNewConsole);
 router.patch("/:id", controller.updateConsole);
 router.delete("/:id", controller.deleteConsole);
+router.get("/", controller.filterByAvailability)
 
 module.exports = router
