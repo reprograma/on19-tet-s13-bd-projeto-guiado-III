@@ -1,0 +1,32 @@
+{
+  "name": "on19-tet-s13-bd-projeto-guiado-iii",
+  "version": "1.0.1",
+  "description": "<h1 align=\"center\">\r   <img src=\"assets/reprograma-fundos-claros.png\" alt=\"logo reprograma\" width=\"500\">\r </h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MargarethGalmier/on19-tet-s13-bd-projeto-guiado-III"
+  },
+  "keywords": [],
+  "author": "Margareth Galmier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MargarethGalmier/on19-tet-s13-bd-projeto-guiado-III/issues"
+  },
+  "homepage": "https://github.com/MargarethGalmier/on19-tet-s13-bd-projeto-guiado-III#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "save": "^2.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
