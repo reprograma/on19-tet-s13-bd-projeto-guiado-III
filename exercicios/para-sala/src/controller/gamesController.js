@@ -1,5 +1,19 @@
 const GamesModel = require("../models/gamesModel");
 const ConsolesModel = require("../models/consolesModel");
+const findName = async(req, res) => {
+  try {
+    const {name} = req.query
+    const nameConsole = await ConsolesModel.find({name})
+if (!nameConsole) {
+  return res.status(404).json({message:"Filtro não foi encontrado"})
+}
+res.status(200).json(nameConsole)
+  } catch {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  };
+};
+
 
 const findAllGames = async (req, res) => {
   try {
@@ -127,6 +141,7 @@ const deleteGame = async (req, res) => {
 
 module.exports = {
   findAllGames,
+  findName,
   findGameById,
   addNewGame,
   updateGame,

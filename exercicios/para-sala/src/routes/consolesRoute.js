@@ -3,6 +3,7 @@ const express = require("express");
 
 const router = express.Router();
 
+router.get("/get", controller.findAvailable)
 router.get("/all", controller.findAllConsoles);
 
 router.get("/:id", controller.findConsoleById);

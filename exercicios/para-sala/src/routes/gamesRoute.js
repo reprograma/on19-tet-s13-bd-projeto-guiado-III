@@ -1,8 +1,10 @@
 const controller = require('../controller/gamesController');
 const express = require('express');
+const { route } = require('./consolesRoute');
 
 const router = express.Router();
 
+router.get("/get",controller.findName); 
 router.get("/all", controller.findAllGames);
 
 router.get("/:id", controller.findGameById);
