@@ -1,0 +1,15 @@
+const controller = require('../controller/consolesController');
+const express = require('express');
+const router = express.Router();
+
+router.get("/all", controller.findAllConsoles);
+
+router.get("/:id", controller.findConsoleById);
+
+router.post("/add", controller.addNewConsole);
+
+router.patch("/:id", controller.updateConsole);
+
+router.get("/:Availabe", controller.findConsolesByAvailable);
+
+module.exports = router; 
