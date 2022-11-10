@@ -24,6 +24,18 @@ const findGameById = async (req, res) => {
   };
 };
 
+const findByName = async (req, res) => {
+  try {
+    const localizaNome = await GamesModel.find(req.query.nome)
+      if (localizaNome == null ) {
+      res.status(404).json({ message: "Game not available" });
+    }
+    res.status(200).json(findByName);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  };
+};
+
 const addNewGame = async (req, res) => {
   try {
     const {
@@ -128,6 +140,7 @@ const deleteGame = async (req, res) => {
 module.exports = {
   findAllGames,
   findGameById,
+  findByName,
   addNewGame,
   updateGame,
   deleteGame,

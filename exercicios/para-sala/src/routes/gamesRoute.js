@@ -7,6 +7,8 @@ router.get("/all", controller.findAllGames);
 
 router.get("/:id", controller.findGameById);
 
+router.get("/:name", controller.findByName);
+
 router.post("/add", controller.addNewGame);
 
 router.patch("/:id", controller.updateGame);
