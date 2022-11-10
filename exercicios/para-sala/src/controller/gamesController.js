@@ -25,6 +25,7 @@ const findGameById = async (req, res) => {
   }
 };
 
+
 const addNewGame = async (req, res) => {
   try {
     const {
@@ -63,6 +64,20 @@ const addNewGame = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
+  }
+};
+
+const findGameByName = async (req, res) => {
+
+  try {
+    const gameByName = req.query.name
+    const findByName = await gamesModel.find({ name: gameByName })
+    if (findByName == null) {
+      res.status(404).json({ message: "Game not available" })
+    }
+    res.status(200).json(findByName)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
   }
 };
 
@@ -105,6 +120,20 @@ const updateGame = async (req, res) => {
   };
 };
 
+const findByGenre = async (req, res) => {
+  try {
+    const findGameByGenre = req.query.genre
+    const regex = new RegExp(findGameByGenre, 'i')
+    const findByGenre = await gamesModel.find({ genre: { $regex: regex } })
+    if (!findByGenre) {
+      res.status(404).json({ message: "Game not available" })
+    }
+    res.status(200).json(findByGenre)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+};
+
 const deleteGame = async (req, res) => {
   try {
     const { id } = req.params;
@@ -120,6 +149,8 @@ const deleteGame = async (req, res) => {
 module.exports = {
   findAllGames,
   findGameById,
+  findGameByName,
+  findByGenre,
   addNewGame,
   updateGame,
   deleteGame,
