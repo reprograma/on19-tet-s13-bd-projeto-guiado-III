@@ -24,6 +24,20 @@ const findConsoleById = async (req, res) => {
     }
 };
 
+const findConsoleByAvailableAndDeveloper = async (req, res) => {
+    try {
+        const { available, developer } = req.query;
+        const findConsoleAvailable = await consolesModel.find({ available }).exec();
+        const findConsoleDeveloper = await consolesModel.find({ developer }).exec();
+        if (!findConsoleAvailable.length && !findConsoleDeveloper.length) {
+            return res.status(404).json({ message: "Filter not found" });
+        }
+        res.status(200).json([findConsoleAvailable, findConsoleDeveloper]);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    };
+};
+
 const addNewConsole = async (req, res) => {
     try {
         const {
@@ -96,7 +110,7 @@ const updateConsole = async (req, res) => {
 
 const deleteConsole = async (req, res) => {
     try {
-        const {id} = req.params;
+        const { id } = req.params;
         const deleteConsole = await consolesModel.findByIdAndDelete(id);
         const message = `Console with name ${deleteConsole.name} was successfully deleted`;
         res.status(200).json({
@@ -113,6 +127,7 @@ const deleteConsole = async (req, res) => {
 module.exports = {
     findAllConsoles,
     findConsoleById,
+    findConsoleByAvailableAndDeveloper,
     addNewConsole,
     updateConsole,
     deleteConsole

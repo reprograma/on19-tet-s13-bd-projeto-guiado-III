@@ -1,10 +1,12 @@
-const controller = require("../controller/gamesController");
+const controller = require("../controllers/gamesController");
 const express = require("express");
 const router = express.Router();
 
 router.get("/all", controller.findAllGames);
 
 router.get("/:id", controller.findGameById);
+
+router.get("", controller.findGameByNameAndGenre);
 
 router.post("/add", controller.addNewGame);
 
