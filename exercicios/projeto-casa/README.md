@@ -17,5 +17,5 @@
 
 ### Print do cadastro do game no Postam
 <h1 align="center">
-  <img src="assets/gameMongo.JPG" alt="game mongo" width="400">
+  <img src="assets/gamesMongo.JPG" alt="game mongo" width="400">
 </h1>
