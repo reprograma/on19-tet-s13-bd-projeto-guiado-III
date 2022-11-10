@@ -23,14 +23,6 @@ const GameSchema = new mongoose.Schema(
       type: [String],
       required: true,
     },
-    //mode: {
-      //type: [String],
-     // required: true,
-    //},
-    //available: {
-    //  type: Boolean,
-   //   required: true,
-   // },
     description: String,
 
     console: {
