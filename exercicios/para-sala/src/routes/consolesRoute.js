@@ -13,4 +13,6 @@ router.patch("/:id", controller.updateConsole);
 
 router.delete("/:id", controller.deleteConsole);
 
+ruhrggktrkhth
+
 module.exports = router;
