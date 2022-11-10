@@ -1,4 +1,5 @@
 const DATABASE_MONGO = process.env.DATABASE_MONGO
+
 const mongoose = require('mongoose')
 
 const connect = async() => {
