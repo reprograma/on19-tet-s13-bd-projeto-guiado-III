@@ -99,7 +99,7 @@ const deleteConsole = async (req, res) => {
 const findConsoleByName = async (req, res) => {
     try {
         const {name} = req.params;
-        const findConsoleByDescription = await consolesModel.find(description);
+        const findConsoleByName = await consolesModel.find(name);
         const message = `Achou esse Console ${findConsoleByName.name}`;
         res.status(200).json({ message});
     } catch (error) {
