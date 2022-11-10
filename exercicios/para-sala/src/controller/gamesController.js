@@ -1,5 +1,6 @@
 const GamesModel = require("../models/gamesModel");
 const ConsolesModel = require("../models/consolesModel");
+<<<<<<< HEAD
 const getName = async (req, res) => {
   try {
     const {name} = req.query
@@ -13,6 +14,8 @@ const getName = async (req, res) => {
     res.status(500).json({ message: error.message });
   };
 }
+=======
+>>>>>>> 6a1fd3b56602aaf232ee4894ab2130300e29d25a
 
 const findAllGames = async (req, res) => {
   try {
@@ -139,7 +142,10 @@ const deleteGame = async (req, res) => {
 };
 
 module.exports = {
+<<<<<<< HEAD
   getName,
+=======
+>>>>>>> 6a1fd3b56602aaf232ee4894ab2130300e29d25a
   findAllGames,
   findGameById,
   addNewGame,
