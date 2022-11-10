@@ -15,7 +15,7 @@ const gameSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    releaseData: {
+    releaseDate: {
       type: Number,
       required: true,
     },

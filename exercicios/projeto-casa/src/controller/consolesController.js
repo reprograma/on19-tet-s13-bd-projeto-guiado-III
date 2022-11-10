@@ -19,6 +19,18 @@ const findConsoleById = async (req, res) => {
     res.status(500).json({ message: error.message });
   };
 };
+const findConsoleByAvailable = async (req, res) => {
+  try {
+      const { available } = req.query;
+      const findConsole = await ConsolesModel.find({ available }).exec();
+      if (!findConsole.length) {
+          return res.status(404).json({ message: "That conditional was not found" });
+      }
+      res.status(200).json(findConsole);
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  };
+};
 
 const addNewConsole = async (req, res) => {
   try {
@@ -101,6 +113,7 @@ const deleteConsole = async (req, res) => {
   module.exports = {
     findAllConsoles,
     findConsoleById,
+    findConsoleByAvailable,
     addNewConsole,
     updateConsole,
     deleteConsole,
