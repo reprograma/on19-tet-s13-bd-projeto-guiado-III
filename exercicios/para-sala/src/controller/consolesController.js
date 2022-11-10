@@ -20,6 +20,20 @@ const findConsoleById = async (req, res) => {
   };
 };
 
+const findAvailableConsoles = async (req, res) => {
+  try {
+    const availableConsoles = await ConsolesModel.find(req.params.available).populate("console");
+    if (availableConsoles == true) {
+      res.status(404).json({message: "At the moment, there is no console available."});
+    }
+    res.status(200).json(availableConsoles);
+  } 
+  catch (error) {
+    console.log(error);
+    res.status(500).json({message: error.message})
+  }
+}
+
 const addNewConsole = async (req, res) => {
   try {
     const {
@@ -97,6 +111,7 @@ const deleteConsole = async (req, res) => {
 module.exports = {
   findAllConsoles,
   findConsoleById,
+  findAvailableConsoles,
   addNewConsole,
   updateConsole,
   deleteConsole,
