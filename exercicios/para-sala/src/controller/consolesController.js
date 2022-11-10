@@ -45,7 +45,7 @@ const addNewConsole = async (req, res) => {
 
     const savedConsole = await newConsole.save();
 
-    res.status(201).json({ message: "New console successfully added", savedConsole });
+    res.status(200).json({ message: "New console successfully added", savedConsole });
   } catch (error) {
     console.error(error);
     res.status(500).json(error.message);

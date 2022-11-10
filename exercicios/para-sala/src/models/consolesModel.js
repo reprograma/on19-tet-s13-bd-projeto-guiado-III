@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const consoleSchema = mongoose.Schema(
+const consoleSchema = new mongoose.Schema(
   {
     _id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -35,9 +35,16 @@ const consoleSchema = mongoose.Schema(
       type: Boolean,
       required: true,
     },
-    description: String,
+    description: {
+      type: String,
+      minLenght: 0,
+      maxLenght: 1000,
+      default: "no description"
   },
-  { timestamp: true }
+  },
+  { 
+    timestamp: true 
+  }
 );
 
 const Model = mongoose.model("Console", consoleSchema);
