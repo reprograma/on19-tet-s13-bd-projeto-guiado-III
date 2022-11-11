@@ -33,7 +33,7 @@ const GameSchema = mongoose.Schema(
     },
     description: String,
 
-    console: {
+    console: { //Conectar os dois, pelo id do console
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "Console",
