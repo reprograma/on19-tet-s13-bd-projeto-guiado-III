@@ -20,32 +20,21 @@ const findConsoleById = async (req, res) => {
   };
 };
 
-
-
-
-
-
-
-
-
 const findConsoleByName = async (req, res) => {
   try {
-    const findConsole = await ConsolesModel.findByName(req.params.id);
-    res.status(200).json(findConsole);
+    const findConsole = await ConsolesModel.find(req.query)
+    if (findConsole == null) {
+      res.status(404).json({ message: "Name not available" });
+    }
+  
+    if (findConsole){
+      res.status(200).json(findConsole);
+    }
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: error.message });
   };
-};
 
-
-
-
-
-
-
-
-
+}
 
 const addNewConsole = async (req, res) => {
   try {
