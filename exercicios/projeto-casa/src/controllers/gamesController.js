@@ -28,9 +28,7 @@ const findGameByNameAndGenre = async (req, res) => {
   try {
     const { name, genre } = req.query;
     const findGame = await gamesModel.find({ name }).exec();
-    console.log(findGame);
-    const findGenre = gamesModel.find({ genre: [genre] }).exec();
-    console.log(findGenre);
+    const findGenre = await gamesModel.find({ genre: { $in: genre } });
     if (!findGame.length && !findGenre.length) {
       return res.status(404).json({ message: "Filter not found" });
     }
