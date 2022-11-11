@@ -12,6 +12,8 @@ const findAllConsoles = async (req, res) => {
     }
 }
 
+
+
 const findConsoleById = async (req, res) => {
     try {
         const findConsole = await consolesModel.findById(req.params.id);
