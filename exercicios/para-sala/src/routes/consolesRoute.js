@@ -6,6 +6,7 @@ const router = express.Router();
 router.get("/all", controller.findAllConsoles);
 router.post("/add", controller.addNewConsole);
 router.get("/name", controller.findConsoleByName);
+router.get("/available", controller.findByAvailable);
 router.get("/:id", controller.findConsoleById);
 router.patch("/:id", controller.updateConsole);
 router.delete("/:id", controller.deleteConsole);

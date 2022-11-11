@@ -34,7 +34,23 @@ const findConsoleByName = async (req, res) => {
     res.status(500).json({ message: error.message });
   };
 
-}
+};
+
+
+const findByAvailable = async (req,res) => {
+  try {
+    const findConsole =  await ConsolesModel.find(req.query)
+    if (findConsole == null) {
+      res.status(404).json({ message: "Console not available" });
+    }
+    if (findConsole){
+      res.status(200).json(findConsole);
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message});
+  };
+};
+
 
 const addNewConsole = async (req, res) => {
   try {
@@ -110,10 +126,12 @@ const deleteConsole = async (req, res) => {
   };
 };
 
+
 module.exports = {
   findAllConsoles,
   findConsoleById,
   findConsoleByName,
+  findByAvailable,
   addNewConsole,
   updateConsole,
   deleteConsole,
