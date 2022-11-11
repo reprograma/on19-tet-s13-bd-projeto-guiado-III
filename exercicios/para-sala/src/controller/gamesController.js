@@ -127,10 +127,8 @@ const deleteGame = async (req, res) => {
 
 const findGameByName = async (req, res) => {
   try {
-    const findGame = await GamesModel.findByName(req.params.name).populate(
-      "console"
-    );
-    if (findGame == null) {
+    const findGame = await GamesModel.find({name:req.query.name})
+    if (!findGame) {
       res.status(404).json({ message: "Game not available" });
     }
     res.status(200).json(findGame);
@@ -141,9 +139,9 @@ const findGameByName = async (req, res) => {
 
 module.exports = {
   findAllGames,
+  findGameByName,
   findGameById,
   addNewGame,
   updateGame,
   deleteGame,
-  findGameByName,
 };

@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.get("/all", controller.findAllGames);
 
-router.get("/:id", controller.findGameById);
+router.get("/name", controller.findGameByName);
 
-router.get("/name", controller.findGameByName)
+router.get("/:id", controller.findGameById);
 
 router.post("/add", controller.addNewGame);
 
