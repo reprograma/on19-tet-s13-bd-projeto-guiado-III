@@ -94,10 +94,28 @@ const deleteConsole = async (req, res) => {
   };
 };
 
+
+// Crie uma rota **GET** que encontre um console usando como parametro *available* (crie a logica na pasta controller);
+
+const findConsoleByAvailable = async (req, res) => {
+  try {
+    const { available } = req.query;
+    const findConsole = await ConsolesModel.find({ available }).exec();
+    if (!findConsole.length) {
+      return res.status(400).json({ message: "condição não encontrada"})
+    }
+    res.status(200).json(findConsole);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  };
+};
+
+
 module.exports = {
   findAllConsoles,
   findConsoleById,
   addNewConsole,
   updateConsole,
   deleteConsole,
+  findConsoleByAvailable,
 };
