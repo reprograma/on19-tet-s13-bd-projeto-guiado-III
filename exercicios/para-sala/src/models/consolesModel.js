@@ -17,7 +17,7 @@ const consoleSchema = mongoose.Schema(
     },
     releaseData: {
       type: Number,
-      //required: true,
+      required: true,
     },
     display: {
       type: [String],

@@ -17,7 +17,7 @@ const GameSchema = mongoose.Schema(
     },
     releaseDate: {
       type: Number,
-      //required: true,
+      required: true,
     },
     genre: {
       type: [String],
