@@ -12,4 +12,6 @@ router.patch("/:id", controller.updateGame);
 
 router.delete("/:id", controller.deleteGame);
 
+router.get("/:name", controller.findByName)
+
 module.exports = router;

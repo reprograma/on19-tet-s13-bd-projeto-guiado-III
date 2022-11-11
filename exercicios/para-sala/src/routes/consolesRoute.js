@@ -12,5 +12,6 @@ Router.patch("/:id", controller.updateConsole);
 
 Router.delete("/:id", controller.deleteConsole);
 
+Router.get("/:available", controller.findByAvailable);
 
 module.exports = Router;
