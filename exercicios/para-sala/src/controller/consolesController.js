@@ -20,6 +20,18 @@ const findConsoleById = async (req, res) => {
   };
 };
 
+const consoleByAvailable = async (req, res) => {
+  try {
+    const findavailable = req.query.available
+    const findConsole = await ConsolesModel.find({ findavailable });
+    if (!findConsole.lenght) {
+    }
+    res.status(200).json(findConsole);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
 const addNewConsole = async (req, res) => {
   try {
     const {
@@ -97,6 +109,7 @@ const deleteConsole = async (req, res) => {
 module.exports = {
   findAllConsoles,
   findConsoleById,
+  consoleByAvailable,
   addNewConsole,
   updateConsole,
   deleteConsole,
