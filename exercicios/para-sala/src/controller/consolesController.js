@@ -96,7 +96,8 @@ const deleteConsole = async (req, res) => {
 
 const findConsoleAvailable = async (req, res) => {
   try {
-    const findConsole = await ConsolesModel.findByAvailable(req.params.Available);
+    const findAvailable = req.query.available
+    const findConsole = await ConsolesModel.find({findAvailable});
     res.status(200).json(findConsole);
   } catch (error) {
     console.error(error);
@@ -106,9 +107,9 @@ const findConsoleAvailable = async (req, res) => {
 
 module.exports = {
   findAllConsoles,
-  findConsoleAvailable,
   findConsoleById,
   addNewConsole,
   updateConsole,
   deleteConsole,
+  findConsoleAvailable,
 };
