@@ -83,8 +83,8 @@ As principais funcionalidade da aplicação são a listagem de games e consoles 
 
 ### Orientadora
 
- - [LINKEDIN](https://www.linkedin.com/in/gaia-maria/)
- - [GITHUB](https://github.com/Gaia-Maria)
+ - [GAIA MARIA - LINKEDIN](https://www.linkedin.com/in/gaia-maria/)
+ - [GAIA MARIA - GITHUB](https://github.com/Gaia-Maria)
 
 ### Autor(a)
 <h4 align="center">
