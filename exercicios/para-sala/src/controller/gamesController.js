@@ -125,9 +125,26 @@ const deleteGame = async (req, res) => {
   };
 };
 
+// Crie uma rota **GET** que encontre um jogo usando como parametro  *name* (crie a logica na pasta controller);
+
+
+const findGameByName = async (req, res) => {
+  try {
+    const filterByName = req.query.name
+    const chosenFilter = await gamesModel.find({name:filterByName})
+   
+      res.status(200).json(chosenFilter);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  };
+};
+
+
+
 module.exports = {
   findAllGames,
   findGameById,
+  findGameByName,
   addNewGame,
   updateGame,
   deleteGame,
