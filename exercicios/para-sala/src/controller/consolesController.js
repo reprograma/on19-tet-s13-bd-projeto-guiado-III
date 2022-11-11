@@ -86,7 +86,7 @@ const deleteConsole = async (req, res) => {
   try {
     const { id } = req.params;
     const deleteConsole = await ConsolesModel.findByIdAndDelete(id);
-    const message = `Console with id ${deleteConsole.name} was successfully deleted`;
+    const message = `Console with id ${deleteConsole.id }was successfully deleted` ;
     res.status(200).json({ message });
   } catch (error){
     console.error(error);
@@ -94,10 +94,57 @@ const deleteConsole = async (req, res) => {
   };
 };
 
+//Crie uma rota GET que encontre um jogo usando como parametro o *name* (crie a logica na pasta controller);
+const findByNameConsole = async (req, res) => {
+  
+  try {
+  
+    const findConsole = await ConsolesModel.find({ nome : req.params.name } )
+    return res.status(200).json(findConsole);
+   
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  };
+};
+
+// Crie uma rota **GET** que encontre um console usando como parametro *available* (crie a logica na pasta controller);
+const findByAvailableConsole = async (req, res) => {
+  try {
+    const findConsole = await ConsolesModel.find(req.params.available);
+    res.status(200).json(findConsole);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  };
+};
+
+
+//GET para *developer* em consoles.
+const findConsoleDeveloper = async (req, res) => {
+  try {
+    
+    const findDeveloper = await ConsolesModel.find({ developer : req.params.developer }) 
+    res.status(200).json(findDeveloper);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  };
+};
+// está retrnando uma array vazia, ou seja algo de errado não ta certo
+
+
+
+
 module.exports = {
   findAllConsoles,
   findConsoleById,
   addNewConsole,
   updateConsole,
   deleteConsole,
+
+  findByNameConsole,
+  findByAvailableConsole,
+
+  findConsoleDeveloper
 };

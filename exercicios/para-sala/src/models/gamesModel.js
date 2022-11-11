@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const GameSchema = mongoose.Schema(
+const gameSchema = new  mongoose.Schema(
   {
     _id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -23,14 +23,7 @@ const GameSchema = mongoose.Schema(
       type: [String],
       required: true,
     },
-    mode: {
-      type: [String],
-      required: true,
-    },
-    available: {
-      type: Boolean,
-      required: true,
-    },
+    
     description: String,
 
     console: {
@@ -42,6 +35,6 @@ const GameSchema = mongoose.Schema(
   { timestamp: true }
 );
 
-const Model = mongoose.model("Game", GameSchema);
+const Model = mongoose.model("game", gameSchema);
 
 module.exports = Model;
