@@ -10,6 +10,9 @@ const findAllGames = async (req, res) => {
   };
 };
 
+
+
+
 const findGameById = async (req, res) => {
   try {
     const findGame = await GamesModel.findById(req.params.id).populate(
@@ -19,6 +22,19 @@ const findGameById = async (req, res) => {
       res.status(404).json({ message: "Game not available" });
     }
     res.status(200).json(findGame);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  };
+};
+
+const findByName = async (req, res) => {
+  try {
+    const { name } = req.query
+    const findName = await GamesModel.find({name: name}); 
+    if (!findName) {
+      res.status(404).json({ message: "Game not found " });
+    }
+    res.status(200).json(findName);
   } catch (error) {
     res.status(500).json({ message: error.message });
   };
@@ -127,8 +143,10 @@ const deleteGame = async (req, res) => {
 
 module.exports = {
   findAllGames,
+  findByName,
   findGameById,
   addNewGame,
   updateGame,
   deleteGame,
+  
 };
