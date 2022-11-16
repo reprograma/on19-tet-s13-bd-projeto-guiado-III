@@ -15,10 +15,12 @@ const ConsolesModel = require("../models/consolesModel");
   };
 };
 */
+
+
 const findByName = async (req, res) => {
     try {
-      const {name} = req.query.name;
-      const findGame = await GamesModel.find.name(name); 
+      const { name } = req.query
+      const findGame = await GamesModel.find({ name }).exec(); 
       if (!findGame) {
         res.status(404).json({ message: "Game not found " });
       }
