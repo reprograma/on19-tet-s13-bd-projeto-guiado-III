@@ -3,6 +3,8 @@ const express = require('express');
 
 const router = express.Router();
 
+router.get("" , controller.findByName)
+
 router.get("/all", controller.findAllGames);
 
 router.get("/:id", controller.findGameById);
