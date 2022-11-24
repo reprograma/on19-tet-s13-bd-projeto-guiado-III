@@ -1,8 +1,6 @@
 const GamesModel = require("../models/gamesModel");
 const ConsolesModel = require("../models/consolesModel");
 
-//req.params.available
-
 const findGamesByAvailable = async (req, res) => {
   try {
     const findGameAvailable = await GamesModel.findGamesByAvailable(req.params.available).populate(
@@ -31,8 +29,10 @@ const findGamesByName = async (req, res) => {
 const findAllGames = async (req, res) => {
   try {
     const allGames = await GamesModel.find().populate("console");
+
     res.status(200).json(allGames);
-  } catch {
+  } catch(error) {
+    console.log(error)
     res.status(500).json({ message: error.message });
   };
 };
