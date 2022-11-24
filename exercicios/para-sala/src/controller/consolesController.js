@@ -86,7 +86,7 @@ const findByAvailable = async(req, res) => {
         const findConsole = await ConsolesModel.find({ findavailable });
         if (!findConsole.lenght) {
         }
-        res.status(200).json(findConsole);
+        res.status(202).json(findConsole);
       } catch (error) {
         res.status(500).json({ message: error.message });
       }
