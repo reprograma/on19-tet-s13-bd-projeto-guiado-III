@@ -16,15 +16,12 @@ describe("API test", () => {
         return done();
       });
     });
-})
-/*  test("Rota Post /users/create", (done) => {
+
+    test("Rota Post - Cria novo Game", (done) => {
     request(app)
-      .post("/users/create")
-      .expect("Content-Type", /json/)
+      .post("/gamestore/games/add")
+      .expect("Content-Type", /json/) //DÚVIDA
       .send({
-        name: "Tereza",
-        email: "tereza@reprograma.com",
-        password: "javascript",
       })
       .expect(201)
       .end((err, res) => {
@@ -32,20 +29,20 @@ describe("API test", () => {
         elementId = res.body.savedUser._id;
         return done();
       });
-  });*/
+  });
 
-/*  test("Rota Delete /users/delete/:id", (done) => {
+  test("Rota Delete - Exclui um Game", (done) => {
     request(app)
-      .delete(`/users/delete/${elementId}`)
-      .expect("Content-Type", /json/)
+      .delete(`gamestore/games/delete/${elementId}`)
+      .expect("Content-Type", /json/) //DUVIDA
       .expect(200)
       .expect((res) => {
         console.log(res.body);
-        expect(res.body.userFound.email).toBe("tereza@reprograma.com");
+        expect(res.body.gameFound.game);//DUVIDA
       })
       .end((err, res) => {
         if (err) return done(err);
         return done();
       });
   });
-});*/
+});
