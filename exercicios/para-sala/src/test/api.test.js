@@ -16,17 +16,25 @@ describe("API test", () => {
         return done();
       });
     });
+  
 
     test("Rota Post - Cria novo Game", (done) => {
     request(app)
       .post("/gamestore/games/add")
       .expect("Content-Type", /json/) //DÚVIDA
       .send({
+        name: "Elvira Bruno Teste",
+        developer: "Mãe da Gi",
+        releaseDate: 1978,
+        genre: ["feminino"],
+        mode:["Feliz"],
+        available:true,
+        description:"Teste Automação"
       })
       .expect(201)
       .end((err, res) => {
         if (err) return done(err);
-        elementId = res.body.savedUser._id;
+        elementId = res.body.saveGame._id;
         return done();
       });
   });
@@ -38,7 +46,8 @@ describe("API test", () => {
       .expect(200)
       .expect((res) => {
         console.log(res.body);
-        expect(res.body.gameFound.game);//DUVIDA
+        expect(res.body.deleteGame.name).toBe
+        ("Console updated");//DUVIDA
       })
       .end((err, res) => {
         if (err) return done(err);
