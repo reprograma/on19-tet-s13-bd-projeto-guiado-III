@@ -1,17 +1,22 @@
-require("dotenv-safe").config();
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("./database/dbConnect");
-const consolesRoutes = require("./routes/consolesRoute");
-const gamesRoutes = require("./routes/gamesRoute");
+require('dotenv-safe').config()
 
-const app = express();
+const express = require('express')
 
-app.use(express.json());
-app.use(cors());
-mongoose.connect();
+const cors = require('cors')
 
-app.use("/gamestore/consoles",consolesRoutes);
-app.use("/gamestore/games",gamesRoutes);
+const mongoose = require('./database/dbConnect')
 
-module.exports = app;
+const consolesRoutes = require('./routes/consolesRoute')
+
+const gamesRoutes = require('./routes/gamesRoute')
+
+const app = express()
+
+app.use(express.json())
+app.use(cors())
+mongoose.connect()
+
+app.use('/gamestore/consoles', consolesRoutes)
+app.use('/gamestore/games', gamesRoutes)
+
+module.exports = app
