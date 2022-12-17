@@ -1,0 +1,21 @@
+{
+  "name": "projeto-casa",
+  "version": "1.0.0",
+  "description": "Oie maravilhosas, vamos de tarefinha.\r Essa semana vocês foram salvas pela Jani, agradeçam muito a ela kkkkkkk Então vamos la:  \r * Crie uma rota **GET** que encontre um jogo usando como parametro o *name* (crie a logica na pasta controller);\r * Crie uma rota **GET** que encontre um console usando como parametro *available* (crie a logica na pasta controller);\r * Cadastre no seu banco de dados um novo jogo e/ou um novo console (a sua escolha), tire um print da tela e adicione essa imagem no seu **README.md** isso servirá como comprovante pessoal de que todo seu codigo esta funcionando. \r * Opicional (não conta como avaliação): Crie uma **rota GET** para *genre* em jogos e uma **rota GET** para *developer* em consoles.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
