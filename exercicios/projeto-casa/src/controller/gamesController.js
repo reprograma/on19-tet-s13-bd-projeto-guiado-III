@@ -3,7 +3,7 @@ const ConsolesModel = require("../models/consolesModel");
 
 const findAllGames = async (req, res) => {
   try {
-    const allGames = await GamesModel.find().populate("console");
+    const allGames = await GamesModel.find();
     res.status(200).json(allGames);
   } catch {
     res.status(500).json({ message: error.message });
@@ -12,9 +12,7 @@ const findAllGames = async (req, res) => {
 
 const findGameById = async (req, res) => {
   try {
-    const findGame = await GamesModel.findById(req.params.id).populate(
-      "console"
-    );
+    const findGame = await GamesModel.findById(req.params.id);
     if (findGame == null) {
       res.status(404).json({ message: "Game not available" });
     }
@@ -27,7 +25,7 @@ const findGameById = async (req, res) => {
 const addNewGame = async (req, res) => {
   try {
     const {
-      consoleId,
+      // consoleId,
       name,
       developer,
       releaseDate,
@@ -37,27 +35,27 @@ const addNewGame = async (req, res) => {
       description,
     } = req.body;
 
-    if (!consoleId) {
+/*     if (!consoleId) {
       return res
         .status(400)
         .json({ message: "Required: Enter the Console id." });
-    };
+    }; */
 
-    const findConsole = await ConsolesModel.findById(consoleId);
+    // const findConsole = await ConsolesModel.findById(consoleId);
 
-    if (!findConsole) {
+/*     if (!findConsole) {
       return res.status(404).json({ message: "Console not found" });
-    };
+    }; */
 
     const newGame = new GamesModel({
-      console: consoleId,
+      // console: consoleId,
       name,
       developer,
       releaseDate,
       genre,
       mode,
       available,
-      description,
+      description
     });
     const savedGame = await newGame.save();
     res
@@ -73,7 +71,7 @@ const updateGame = async (req, res) => {
   try {
     const { id } = req.params;
     const {
-      consoleId,
+      // consoleId,
       name,
       developer,
       releaseDate,
@@ -87,13 +85,13 @@ const updateGame = async (req, res) => {
       res.status(404).json({ message: "Game not found" });
     };
 
-    if (consoleId) {
-      const findConsole = await ConsolesModel.findById(consoleId);
+    // if (consoleId) {
+      // const findConsole = await ConsolesModel.findById(consoleId);
 
-      if (findConsole == null) {
+      /* if (findConsole == null) {
         return res.status(404).json({ message: "Console not found" });
-      };
-    };
+      }; 
+    };*/
     findGame.name = name || findGame.name;
     findGame.developer = developer || findGame.developer;
     findGame.releaseDate = releaseDate || findGame.releaseDate;
@@ -101,7 +99,7 @@ const updateGame = async (req, res) => {
     findGame.mode = mode || findGame.mode;
     findGame.available = available || findGame.available;
     findGame.description = description || findGame.description;
-    findGame.console = consoleId || findGame.console;
+    // findGame.console = consoleId || findGame.console;
 
     const savedGame = await findGame.save();
     res.status(200).json({ message: "Game successfully updated", savedGame });
@@ -136,7 +134,6 @@ const findGameByName = async (req, res) => {
     res.status(500).json({ message: error.message });
   };
 };
-
 
 const findByGenre = async (req, res) => {
   try {

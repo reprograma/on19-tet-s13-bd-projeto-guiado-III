@@ -8,36 +8,36 @@ const GameSchema = mongoose.Schema(
     },
     name: {
       type: String,
-      required: true,
+      required:true,
       unique: true,
     },
     developer: {
       type: String,
-      required: true,
+      required:true,
     },
     releaseDate: {
       type: Number,
-      required: true,
+      required:true,
     },
     genre: {
       type: [String],
-      required: true,
+      required:true,
     },
     mode: {
       type: [String],
-      required: true,
+      required:true,
     },
     available: {
       type: Boolean,
-      required: true,
+      required:true,
     },
-    description: String,
+    description: String
 
-    console: {
+    /* console: {,
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "Console",
-    },
+      required:true,
+      ref: "Consoles",
+    }, */
   },
   { timestamp: true }
 );
@@ -45,3 +45,4 @@ const GameSchema = mongoose.Schema(
 const Model = mongoose.model("Game", GameSchema);
 
 module.exports = Model;
+
