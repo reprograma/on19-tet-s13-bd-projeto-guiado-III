@@ -61,7 +61,8 @@ const updateConsole = async (req,res) => {
             numberOfPlayers,
             available
         } = req.body
-        const updateConsole = await consoleModel.findByIdAndUpdate(id, {
+        const { id } = req.params
+        await consoleModel.findByIdAndUpdate(id, {
             name,
             developer,
             releaseDate,
@@ -70,6 +71,7 @@ const updateConsole = async (req,res) => {
             numberOfPlayers,
             available
         });
+        const updateConsole = await consoleModel.findById(id)
         res.status(200).json({ msg: `Console ${updateConsole.name} updated successfully`, updateConsole});
     } catch (error){
         res.status(500).json(error.message);
@@ -78,7 +80,7 @@ const updateConsole = async (req,res) => {
 
 const findConsoleByQuery = async (req,res) => {
     try {
-        const { name, available, dev, display} = req.query
+        const { name, available, dev, display } = req.query
         if (name){
             const findByName = await query.consoleFinder("name", name);
             if (findByName){
@@ -107,12 +109,25 @@ const findConsoleByQuery = async (req,res) => {
     } catch (error){
         res.status(500).json(error.message);
     };
-}
+};
+
+const deleteConsole = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const deleteConsole = await consoleModel.findByIdAndDelete(id);
+      const message = `${deleteConsole.name} was successfully deleted`;
+      res.status(200).json({ message, deleteConsole });
+    } catch (error){
+      console.log(error);
+      res.status(500).json({ message: error.message });
+    };
+  };
 
 module.exports = {
     listAllConsoles,
     findConsoleById,
     findConsoleByQuery,
     addNewConsole,
-    updateConsole
+    updateConsole,
+    deleteConsole
 }

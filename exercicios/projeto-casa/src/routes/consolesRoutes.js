@@ -7,6 +7,7 @@ route.get('/list', controller.listAllConsoles)
 route.get('/:id', controller.findConsoleById)
 route.get('/', controller.findConsoleByQuery)
 route.post('/new', controller.addNewConsole)
-route.patch('/update', controller.updateConsole)
+route.patch('/update/:id', controller.updateConsole)
+route.delete("/delete/:id", controller.deleteConsole)
 
 module.exports = route
